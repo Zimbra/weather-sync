@@ -1,0 +1,20 @@
+{
+  "name": "weathersync",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Jason Miller <jasonmiller@synacor.com>",
+  "license": "Unlicensed",
+  "dependencies": {
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "http-proxy-middleware": "^0.13.0",
+    "morgan": "^1.7.0"
+  },
+  "engines": {
+    "node": "4.x",
+    "npm": "2.x"
+  }
+}
