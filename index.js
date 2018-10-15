@@ -4,6 +4,7 @@ var express = require('express'),
 	morgan = require('morgan');
 
 var WEATHER_KEY = process.env.WEATHER_KEY;
+var IP_KEY = process.env.IP_KEY;
 
 var app = express();
 
@@ -35,10 +36,10 @@ app.use( cors({
 
 // proxy to GeoIP API
 app.get('/ip', function(req, res, next) {
-	req.url = req.url.replace(/\/*$/g, '/' + encodeURIComponent(getIp(req)));
+	req.url = req.url.replace(/\/*$/g, '/' + encodeURIComponent(getIp(req)) + '?access_key='+IP_KEY);
 	next();
 }, proxy('/ip', {
-	target: 'https://geoip.nekudo.com',
+	target: 'http://api.ipapi.com',
 	changeOrigin: true,
 	pathRewrite: {
 		'^/ip': '/api'
